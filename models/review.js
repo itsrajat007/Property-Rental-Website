@@ -4,8 +4,8 @@ const mangoose = require("mongoose");
 let Schema = mongoose.Schema;
 
 const reviewSchema =  new Schema({
-    Comment:String,
-    Rating:{
+    comment:String,
+    rating:{
         type:Number,
         min:1,
         max:5,
@@ -16,6 +16,4 @@ const reviewSchema =  new Schema({
     }
 })
 
-let Review = mangoose.model("Review",reviewSchema);
-
-module.exports = Review;
+module.exports = mangoose.model("Review",reviewSchema);
