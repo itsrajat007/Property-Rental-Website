@@ -1,8 +1,14 @@
 const mongoose = require("mongoose");
 const initData = require("./data.js");
 const Listing = require("../models/listings.js");
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 
-MONGO_URL = "mongodb://127.0.0.1:27017/wonderlust";
+
+
+// MONGO_URL = "mongodb://127.0.0.1:27017/wonderlust";
+const dbUrl = process.env.ATLASDB_URL;
+
 main().then((res) => {
     console.log("Connected to DB");
 }).catch((err) => {
@@ -10,7 +16,7 @@ main().then((res) => {
 });
 
 async function main() {
-    await mongoose.connect(MONGO_URL);
+    await mongoose.connect(dbUrl);
 };
 
 const initDB = async () => {
