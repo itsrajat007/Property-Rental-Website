@@ -11,24 +11,24 @@ const upload = multer({ storage });
 // Index Route
 // Create Route
 router
-    .route("/")
+    .route("/listings")
     .get( wrapAsync(listingsController.index))
     .post( isLoggedIn, upload.single("listings[image]"), validateListing, wrapAsync(listingsController.createListing));
 
 //New Route
-router.get("/new",isLoggedIn, listingsController.renderNewForm);
+router.get("/listings/new",isLoggedIn, listingsController.renderNewForm);
 
 //Show Route
 //Update Route
 //Delete Route
 router
-    .route("/:id")
+    .route("/listings/:id")
     .get( wrapAsync( listingsController.showListings ))
     .put( isLoggedIn,isOwner,upload.single("listings[image]"), validateListing, wrapAsync(listingsController.updateListing))
     .delete( isLoggedIn,isOwner, wrapAsync( listingsController.destroyListing));
 
 
 //Edit Route
-router.get("/:id/edit", isLoggedIn,isOwner, wrapAsync(listingsController.renderEditForm));
+router.get("/listings/:id/edit", isLoggedIn,isOwner, wrapAsync(listingsController.renderEditForm));
 
 module.exports = router;
