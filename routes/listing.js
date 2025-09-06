@@ -8,6 +8,12 @@ const multer  = require('multer')
 const { storage } = require("../cloudConfig.js");
 const upload = multer({ storage });
 
+
+// index on open renderapp url
+router
+    .route("/")
+    .get(wrapAsync(listingsController.indexx));
+
 // Index Route
 // Create Route
 router
