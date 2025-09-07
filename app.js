@@ -64,8 +64,6 @@ const sessionOption = {
     }
 };
 
-
-
 app.use(session(sessionOption));
 app.use(flash());
 
