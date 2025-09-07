@@ -95,6 +95,8 @@ app.use((err,req,res,next) =>{
     //res.status(statusCode).send(message);
 })
 
-app.listen(3000,(req,res) => {
-    console.log("Server is listening to port:3000");
+let port = process.env.PORT || 3000 ;
+
+app.listen(port, (req,res) => {
+    console.log(`Server is listening to port: ${port}`);
 })
