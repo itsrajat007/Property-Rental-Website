@@ -5,8 +5,6 @@ const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 
 
-
-// MONGO_URL = "mongodb://127.0.0.1:27017/wonderlust";
 const dbUrl = process.env.ATLASDB_URL;
 
 main().then((res) => {
